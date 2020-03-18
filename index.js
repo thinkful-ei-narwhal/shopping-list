@@ -29,11 +29,20 @@ function addItem() {
 }
 
 function checkUncheck() {
-  $('.shopping-item-controls').on('click', '.shopping-item-toggle', event => {
+  $('.shopping-list').on('click', '.shopping-item-toggle', event => {
     event.preventDefault();
-    $(event.currentTarget).closest('span').toggleClass('shopping-item__checked');
+    $(event.currentTarget).parents('li').find('.shopping-item').toggleClass('shopping-item__checked');
   });
 }
 
+function deleted() {
+  $('.shopping-list').on('click', '.shopping-item-delete', event => {
+    event.preventDefault();
+    $(event.currentTarget).parents('li').remove();
+  });
+}
+
+
 $(addItem);
 $(checkUncheck);
+$(deleted);
