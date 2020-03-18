@@ -1,13 +1,6 @@
-// your app must:
-// enter items they need to purchase by entering
-// text and hitting "Return" or clicking the "Add item" button
-
-// check and uncheck items on the list by clicking the "Check" button
-
-// permanently remove items from the list
 'use strict';
 
-function addItem() {
+$(function () {
   $('#js-shopping-list-form').submit(event => {
     event.preventDefault();
     const food = $(event.currentTarget).find('input[name="shopping-list-entry"]').first().val();
@@ -26,23 +19,18 @@ function addItem() {
     
     $('.shopping-list').append(string);
   });
-}
 
-function checkUncheck() {
+
+
   $('.shopping-list').on('click', '.shopping-item-toggle', event => {
     event.preventDefault();
     $(event.currentTarget).parents('li').find('.shopping-item').toggleClass('shopping-item__checked');
   });
-}
 
-function deleted() {
+
+
   $('.shopping-list').on('click', '.shopping-item-delete', event => {
     event.preventDefault();
     $(event.currentTarget).parents('li').remove();
   });
-}
-
-
-$(addItem);
-$(checkUncheck);
-$(deleted);
+});
