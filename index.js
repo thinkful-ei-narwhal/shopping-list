@@ -28,4 +28,12 @@ function AddItem() {
   });
 }
 
+function checkUncheck(){
+  $('.shopping-item-toggle').click( event => {
+    event.preventDefault();
+    $(event.currentTarget).closest('span').toggleClass('shopping-item__checked');
+  });
+}
+
 $(AddItem);
+$(checkUncheck);
