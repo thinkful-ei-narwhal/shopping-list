@@ -7,8 +7,8 @@
 // permanently remove items from the list
 'use strict';
 
-function AddItem() {
-  $('.container').on('submit', '#js-shopping-list-form', event => {
+function addItem() {
+  $('#js-shopping-list-form').submit(event => {
     event.preventDefault();
     const food = $(event.currentTarget).find('input[name="shopping-list-entry"]').first().val();
 
@@ -28,12 +28,12 @@ function AddItem() {
   });
 }
 
-function checkUncheck(){
-  $('.shopping-item-toggle').click( event => {
+function checkUncheck() {
+  $('.shopping-item-controls').on('click', '.shopping-item-toggle', event => {
     event.preventDefault();
     $(event.currentTarget).closest('span').toggleClass('shopping-item__checked');
   });
 }
 
-$(AddItem);
+$(addItem);
 $(checkUncheck);
