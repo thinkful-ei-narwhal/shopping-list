@@ -5,19 +5,21 @@ $(function () {
     event.preventDefault();
     const food = $(event.currentTarget).find('input[name="shopping-list-entry"]').first().val();
 
-    const string = $(`<li>
-    <span class="shopping-item">${food}</span>
-    <div class="shopping-item-controls">
-      <button class="shopping-item-toggle">
-        <span class="button-label">check</span>
-      </button>
-      <button class="shopping-item-delete">
-        <span class="button-label">delete</span>
-      </button>
-    </div>
-  </li>`);
-    
-    $('.shopping-list').append(string);
+    if (food !== '')  {
+      const string = $(`<li>
+      <span class="shopping-item">${food}</span>
+      <div class="shopping-item-controls">
+        <button class="shopping-item-toggle">
+          <span class="button-label">check</span>
+        </button>
+        <button class="shopping-item-delete">
+          <span class="button-label">delete</span>
+        </button>
+      </div>
+    </li>`);
+      
+      $('.shopping-list').append(string);
+    }
   });
 
 
